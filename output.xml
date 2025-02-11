@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-02-11T11:06:48.386411" rpa="false" schemaversion="5">
+<suite id="s1" name="Test01" source="d:\66022815\testcase\test01.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-02-11T11:06:48.592336" level="INFO">Opening browser 'Chrome' to base url 'https://automationexercise.com/products'.</msg>
+<arg>https://automationexercise.com/products</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-11T11:06:48.592068" elapsed="4.661783"/>
+</kw>
+<test id="s1-t1" name="Search and Verify Product" line="21">
+<kw name="Input Search Product">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-11T11:06:53.255727" level="INFO">Typing text 'Winter Top' into text field '//*[@id="search_product"]'.</msg>
+<arg>//*[@id="search_product"]</arg>
+<arg>${SEARCH_TEXT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-11T11:06:53.255248" elapsed="0.068015"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-11T11:06:53.323691" level="INFO">Clicking button '//*[@id="submit_search"]'.</msg>
+<arg>//*[@id="submit_search"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-11T11:06:53.323483" elapsed="0.861888"/>
+</kw>
+<arg>${SEARCH_TEXT}</arg>
+<status status="PASS" start="2025-02-11T11:06:53.254812" elapsed="0.930788"/>
+</kw>
+<kw name="Verify Search Result">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[@class="features_items"]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-11T11:06:54.186814" elapsed="0.016690"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-11T11:06:54.213608" level="INFO">Current page contains text 'Winter Top'.</msg>
+<arg>${SEARCH_TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-02-11T11:06:54.203718" elapsed="0.010504"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>//div[@class="no_results"]</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-02-11T11:06:54.215070" elapsed="0.008831"/>
+</kw>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>//div[@class="no_results"]</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-02-11T11:06:54.214627" elapsed="0.009418"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-02-11T11:06:54.241386" level="INFO">Element '//div[@class="features_items"]' contains text 'Winter Top'.</msg>
+<arg>//div[@class="features_items"]</arg>
+<arg>${SEARCH_TEXT}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-02-11T11:06:54.224182" elapsed="0.017393"/>
+</kw>
+<status status="PASS" start="2025-02-11T11:06:54.186311" elapsed="0.055381"/>
+</kw>
+<status status="PASS" start="2025-02-11T11:06:53.254105" elapsed="0.988063"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-11T11:06:54.243585" elapsed="2.093035"/>
+</kw>
+<status status="PASS" start="2025-02-11T11:06:48.389585" elapsed="7.947630"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test01" id="s1" pass="1" fail="0" skip="0">Test01</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
